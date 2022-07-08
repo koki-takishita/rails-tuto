@@ -1,11 +1,6 @@
 Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
   
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
-    logger           = ActiveSupport::Logger.new(STDOUT)
-    logger.formatter = config.log_formatter
-    config.logger = ActiveSupport::TaggedLogging.new(logger)
-  end
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -108,7 +103,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   # アップロードされたファイルをAWSに保存する
-  config.active_storage.service = :amazon
+  config.active_storage.service = :local
 
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector
